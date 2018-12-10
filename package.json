@@ -1,0 +1,44 @@
+{
+  "name": "h2m",
+  "version": "0.7.0",
+  "description": "Transform HTML to markdown base on posthtml.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha && npm run coverage",
+    "istanbul": "istanbul cover ./node_modules/mocha/bin/_mocha",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "build": "browserify browser.js -o dist/h2m.js",
+    "lint": "eslint index.js converters/commonmark.js converters/markdown-extra.js; exit 0"
+  },
+  "bin": {
+    "h2m": "bin/h2m-cli.js"
+  },
+  "keywords": [
+    "posthtml",
+    "markdown",
+    "html"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/island205/h2m.git"
+  },
+  "bugs": {
+    "url": "https://github.com/island205/h2m/issues"
+  },
+  "homepage": "http://island205.github.io/h2m/",
+  "author": "island205@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "clipboardy": "~1.2.3",
+    "commander": "^2.9.0",
+    "htmlparser2": "^3.9.0",
+    "request": "^2.67.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "coveralls": "^2.11.4",
+    "jscoverage": "^0.6.0",
+    "mocha": "^2.3.4",
+    "mocha-lcov-reporter": "^1.0.0"
+  }
+}
